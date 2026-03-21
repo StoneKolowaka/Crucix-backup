@@ -2,9 +2,9 @@
 // Free for research. 4,000 API credits/day (no auth), 8,000 with account.
 // Tracks all aircraft with ADS-B transponders including many military.
 
-import { safeFetch } from '../utils/fetch.mjs';
+import { safeFetch } from "../utils/fetch.mjs";
 
-const BASE = 'https://opensky-network.org/api';
+const BASE = "https://opensky-network.org/api";
 
 // Get all current flights (global state vector)
 export async function getAllFlights() {
@@ -25,7 +25,7 @@ export async function getFlightsInArea(lamin, lomin, lamax, lomax) {
 // Get flights by specific aircraft (ICAO24 hex codes)
 export async function getFlightsByIcao(icao24List) {
   const icao = Array.isArray(icao24List) ? icao24List : [icao24List];
-  const params = icao.map(i => `icao24=${i}`).join('&');
+  const params = icao.map((i) => `icao24=${i}`).join("&");
   return safeFetch(`${BASE}/states/all?${params}`, { timeout: 20000 });
 }
 
@@ -51,24 +51,154 @@ export async function getArrivals(airportIcao, begin, end) {
 
 // Key hotspot regions for monitoring
 const HOTSPOTS = {
-  middleEast: { lamin: 12, lomin: 30, lamax: 42, lomax: 65, label: 'Middle East' },
-  taiwan: { lamin: 20, lomin: 115, lamax: 28, lomax: 125, label: 'Taiwan Strait' },
-  ukraine: { lamin: 44, lomin: 22, lamax: 53, lomax: 41, label: 'Ukraine Region' },
-  baltics: { lamin: 53, lomin: 19, lamax: 60, lomax: 29, label: 'Baltic Region' },
-  southChinaSea: { lamin: 5, lomin: 105, lamax: 23, lomax: 122, label: 'South China Sea' },
-  koreanPeninsula: { lamin: 33, lomin: 124, lamax: 43, lomax: 132, label: 'Korean Peninsula' },
-  caribbean: { lamin: 18, lomin: -90, lamax: 30, lomax: -72, label: 'Caribbean' },
-  gulfOfGuinea: { lamin: -2, lomin: -5, lamax: 8, lomax: 10, label: 'Gulf of Guinea' },
-  capeRoute: { lamin: -38, lomin: 12, lamax: -28, lomax: 24, label: 'Cape Route' },
-  hornOfAfrica: { lamin: 5, lomin: 40, lamax: 15, lomax: 55, label: 'Horn of Africa' },
+  middleEast: {
+    lamin: 12,
+    lomin: 30,
+    lamax: 42,
+    lomax: 65,
+    label: "Middle East",
+  },
+  taiwan: {
+    lamin: 20,
+    lomin: 115,
+    lamax: 28,
+    lomax: 125,
+    label: "Taiwan Strait",
+  },
+  ukraine: {
+    lamin: 44,
+    lomin: 22,
+    lamax: 53,
+    lomax: 41,
+    label: "Ukraine Region",
+  },
+  baltics: {
+    lamin: 53,
+    lomin: 19,
+    lamax: 60,
+    lomax: 29,
+    label: "Baltic Region",
+  },
+  southChinaSea: {
+    lamin: 5,
+    lomin: 105,
+    lamax: 23,
+    lomax: 122,
+    label: "South China Sea",
+  },
+  koreanPeninsula: {
+    lamin: 33,
+    lomin: 124,
+    lamax: 43,
+    lomax: 132,
+    label: "Korean Peninsula",
+  },
+  caribbean: {
+    lamin: 18,
+    lomin: -90,
+    lamax: 30,
+    lomax: -72,
+    label: "Caribbean",
+  },
+  gulfOfGuinea: {
+    lamin: -2,
+    lomin: -5,
+    lamax: 8,
+    lomax: 10,
+    label: "Gulf of Guinea",
+  },
+  capeRoute: {
+    lamin: -38,
+    lomin: 12,
+    lamax: -28,
+    lomax: 24,
+    label: "Cape Route",
+  },
+  hornOfAfrica: {
+    lamin: 5,
+    lomin: 40,
+    lamax: 15,
+    lomax: 55,
+    label: "Horn of Africa",
+  },
 };
 
 // Briefing — check hotspot regions for flight activity
+// Note: OpenSky free tier = 4000 credits/day anonymous. Query priority hotspots only
+// to avoid rate limits. Use sequential requests with delay to prevent 429 errors.
+const PRIORITY_HOTSPOTS = [
+  "middleEast",
+  "ukraine",
+  "taiwan",
+  "southChinaSea",
+  "koreanPeninsula",
+  "baltics",
+];
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export async function briefing() {
+  const hotspotEntries = Object.entries(HOTSPOTS).filter(([k]) =>
+    PRIORITY_HOTSPOTS.includes(k),
+  );
+  const results = [];
+
+  for (const [key, box] of hotspotEntries) {
+    const data = await getFlightsInArea(
+      box.lamin,
+      box.lomin,
+      box.lamax,
+      box.lomax,
+    );
+    const error = data?.error || null;
+    const states = data?.states || [];
+    results.push({
+      region: box.label,
+      key,
+      totalAircraft: states.length,
+      byCountry: states.reduce((acc, s) => {
+        const country = s[2] || "Unknown";
+        acc[country] = (acc[country] || 0) + 1;
+        return acc;
+      }, {}),
+      noCallsign: states.filter((s) => !s[1]?.trim()).length,
+      highAltitude: states.filter((s) => s[7] && s[7] > 12000).length,
+      ...(error ? { error } : {}),
+    });
+    if (!error) await sleep(500); // avoid hitting rate limits
+  }
+
+  const hotspotErrors = results
+    .filter((r) => r.error)
+    .map((r) => ({ region: r.region, error: r.error }));
+
+  return {
+    source: "OpenSky",
+    timestamp: new Date().toISOString(),
+    hotspots: results,
+    ...(hotspotErrors.length
+      ? {
+          error:
+            hotspotErrors.length === results.length
+              ? `OpenSky unavailable across all hotspots: ${hotspotErrors[0].error}`
+              : `OpenSky unavailable for ${hotspotErrors.length}/${results.length} hotspots`,
+          hotspotErrors,
+        }
+      : {}),
+  };
+}
+
+// Legacy parallel path kept for backwards compat — only called if briefing() fails
+async function _briefingParallel() {
   const hotspotEntries = Object.entries(HOTSPOTS);
   const results = await Promise.all(
     hotspotEntries.map(async ([key, box]) => {
-      const data = await getFlightsInArea(box.lamin, box.lomin, box.lamax, box.lomax);
+      const data = await getFlightsInArea(
+        box.lamin,
+        box.lomin,
+        box.lamax,
+        box.lomax,
+      );
       const error = data?.error || null;
       const states = data?.states || [];
       return {
@@ -77,36 +207,39 @@ export async function briefing() {
         totalAircraft: states.length,
         // states format: [icao24, callsign, origin_country, ...]
         byCountry: states.reduce((acc, s) => {
-          const country = s[2] || 'Unknown';
+          const country = s[2] || "Unknown";
           acc[country] = (acc[country] || 0) + 1;
           return acc;
         }, {}),
         // Flag potentially interesting (military often have no callsign or specific patterns)
-        noCallsign: states.filter(s => !s[1]?.trim()).length,
-        highAltitude: states.filter(s => s[7] && s[7] > 12000).length, // >12km altitude
+        noCallsign: states.filter((s) => !s[1]?.trim()).length,
+        highAltitude: states.filter((s) => s[7] && s[7] > 12000).length, // >12km altitude
         ...(error ? { error } : {}),
       };
-    })
+    }),
   );
 
   const hotspotErrors = results
-    .filter(r => r.error)
-    .map(r => ({ region: r.region, error: r.error }));
+    .filter((r) => r.error)
+    .map((r) => ({ region: r.region, error: r.error }));
 
   return {
-    source: 'OpenSky',
+    source: "OpenSky",
     timestamp: new Date().toISOString(),
     hotspots: results,
-    ...(hotspotErrors.length ? {
-      error: hotspotErrors.length === results.length
-        ? `OpenSky unavailable across all hotspots: ${hotspotErrors[0].error}`
-        : `OpenSky unavailable for ${hotspotErrors.length}/${results.length} hotspots`,
-      hotspotErrors,
-    } : {}),
+    ...(hotspotErrors.length
+      ? {
+          error:
+            hotspotErrors.length === results.length
+              ? `OpenSky unavailable across all hotspots: ${hotspotErrors[0].error}`
+              : `OpenSky unavailable for ${hotspotErrors.length}/${results.length} hotspots`,
+          hotspotErrors,
+        }
+      : {}),
   };
 }
 
-if (process.argv[1]?.endsWith('opensky.mjs')) {
+if (process.argv[1]?.endsWith("opensky.mjs")) {
   const data = await briefing();
   console.log(JSON.stringify(data, null, 2));
 }

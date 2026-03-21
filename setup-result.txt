@@ -1,0 +1,3 @@
+[OK] Scheduled task: "Ready"
+[OK] Crucix RUNNING: {"status":"ok","uptime":203,"lastSweep":"2026-03-21T09:49:09.430Z","nextSweep":"2026-03-21T09:51:09.430Z","sweepInProgress":true,"sweepStartedAt":"2026-03-21T09:46:21.887Z","sourcesOk":27,"sourcesFail
+[OK] Dashboard->Crucix proxy works: 29 keys: meta, air, thermal, tSignals, chokepoints, nuke, nukeSignals, airMeta, sdr, tg, who, fred, energy, bls, treasury, gscpi, defense, noaa, epa, acled, gdelt, space, health, news, markets, crypto200, ideas, ideasSource, newsFeed

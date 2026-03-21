@@ -1,0 +1,370 @@
+{
+  "health": {
+    "status": "ok",
+    "uptime": 455,
+    "lastSweep": "2026-03-21T18:02:17.111Z",
+    "nextSweep": "2026-03-21T18:04:17.111Z",
+    "sweepInProgress": false,
+    "sweepStartedAt": "2026-03-21T18:01:46.853Z",
+    "sourcesOk": 27,
+    "sourcesFailed": 1,
+    "llmEnabled": true,
+    "llmProvider": "anthropic",
+    "telegramEnabled": false,
+    "refreshIntervalMinutes": 2,
+    "language": "en"
+  },
+  "vix": {
+    "value": 26.78,
+    "change": 3.27,
+    "changePct": 13.91
+  },
+  "indexes": [
+    {
+      "symbol": "SPY",
+      "name": "S&P 500",
+      "price": 648.57,
+      "change": -13.72,
+      "changePct": -2.07,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 669.03
+        },
+        {
+          "date": "2026-03-17",
+          "close": 670.79
+        },
+        {
+          "date": "2026-03-18",
+          "close": 661.43
+        },
+        {
+          "date": "2026-03-19",
+          "close": 659.8
+        },
+        {
+          "date": "2026-03-20",
+          "close": 648.57
+        },
+        {
+          "date": "2026-03-20",
+          "close": 648.57
+        }
+      ]
+    },
+    {
+      "symbol": "QQQ",
+      "name": "Nasdaq 100",
+      "price": 582.06,
+      "change": -11.66,
+      "changePct": -1.96,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 600.38
+        },
+        {
+          "date": "2026-03-17",
+          "close": 603.31
+        },
+        {
+          "date": "2026-03-18",
+          "close": 594.9
+        },
+        {
+          "date": "2026-03-19",
+          "close": 593.02
+        },
+        {
+          "date": "2026-03-20",
+          "close": 582.06
+        },
+        {
+          "date": "2026-03-20",
+          "close": 582.06
+        }
+      ]
+    },
+    {
+      "symbol": "DIA",
+      "name": "Dow Jones",
+      "price": 455.89,
+      "change": -10.52,
+      "changePct": -2.26,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 470.3
+        },
+        {
+          "date": "2026-03-17",
+          "close": 470.9
+        },
+        {
+          "date": "2026-03-18",
+          "close": 463
+        },
+        {
+          "date": "2026-03-19",
+          "close": 461.06
+        },
+        {
+          "date": "2026-03-20",
+          "close": 455.89
+        },
+        {
+          "date": "2026-03-20",
+          "close": 455.89
+        }
+      ]
+    },
+    {
+      "symbol": "IWM",
+      "name": "Russell 2000",
+      "price": 242.22,
+      "change": -4.37,
+      "changePct": -1.77,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 248.92
+        },
+        {
+          "date": "2026-03-17",
+          "close": 250.05
+        },
+        {
+          "date": "2026-03-18",
+          "close": 246.02
+        },
+        {
+          "date": "2026-03-19",
+          "close": 247.63
+        },
+        {
+          "date": "2026-03-20",
+          "close": 242.22
+        },
+        {
+          "date": "2026-03-20",
+          "close": 242.22
+        }
+      ]
+    }
+  ],
+  "rates": [
+    {
+      "symbol": "TLT",
+      "name": "20Y+ Treasury",
+      "price": 85.83,
+      "change": -0.71,
+      "changePct": -0.82
+    },
+    {
+      "symbol": "HYG",
+      "name": "High Yield Corp",
+      "price": 78.92,
+      "change": -0.28,
+      "changePct": -0.35
+    },
+    {
+      "symbol": "LQD",
+      "name": "IG Corporate",
+      "price": 107.85,
+      "change": -0.32,
+      "changePct": -0.3
+    }
+  ],
+  "commodities": [
+    {
+      "symbol": "GC=F",
+      "name": "Gold",
+      "price": 4574.9,
+      "change": -419.1,
+      "changePct": -8.39,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 4994
+        },
+        {
+          "date": "2026-03-17",
+          "close": 5001
+        },
+        {
+          "date": "2026-03-18",
+          "close": 4889.9
+        },
+        {
+          "date": "2026-03-19",
+          "close": 4600.7
+        },
+        {
+          "date": "2026-03-20",
+          "close": 4570.4
+        },
+        {
+          "date": "2026-03-20",
+          "close": 4574.9
+        }
+      ]
+    },
+    {
+      "symbol": "SI=F",
+      "name": "Silver",
+      "price": 69.66,
+      "change": -10.6,
+      "changePct": -13.21,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 80.26
+        },
+        {
+          "date": "2026-03-17",
+          "close": 79.53
+        },
+        {
+          "date": "2026-03-18",
+          "close": 77.24
+        },
+        {
+          "date": "2026-03-19",
+          "close": 70.9
+        },
+        {
+          "date": "2026-03-20",
+          "close": 69.36
+        },
+        {
+          "date": "2026-03-20",
+          "close": 69.66
+        }
+      ]
+    },
+    {
+      "symbol": "CL=F",
+      "name": "WTI Crude",
+      "price": 98.23,
+      "change": 4.73,
+      "changePct": 5.06,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 93.5
+        },
+        {
+          "date": "2026-03-17",
+          "close": 96.21
+        },
+        {
+          "date": "2026-03-18",
+          "close": 96.32
+        },
+        {
+          "date": "2026-03-19",
+          "close": 96.14
+        },
+        {
+          "date": "2026-03-20",
+          "close": 98.32
+        },
+        {
+          "date": "2026-03-20",
+          "close": 98.23
+        }
+      ]
+    },
+    {
+      "symbol": "BZ=F",
+      "name": "Brent Crude",
+      "price": 106.41,
+      "change": 6.2,
+      "changePct": 6.19,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 100.21
+        },
+        {
+          "date": "2026-03-17",
+          "close": 103.42
+        },
+        {
+          "date": "2026-03-18",
+          "close": 107.38
+        },
+        {
+          "date": "2026-03-19",
+          "close": 108.65
+        },
+        {
+          "date": "2026-03-20",
+          "close": 112.19
+        },
+        {
+          "date": "2026-03-20",
+          "close": 106.41
+        }
+      ]
+    },
+    {
+      "symbol": "NG=F",
+      "name": "Natural Gas",
+      "price": 3.1,
+      "change": 0.07,
+      "changePct": 2.38,
+      "history": [
+        {
+          "date": "2026-03-16",
+          "close": 3.02
+        },
+        {
+          "date": "2026-03-17",
+          "close": 3.03
+        },
+        {
+          "date": "2026-03-18",
+          "close": 3.07
+        },
+        {
+          "date": "2026-03-19",
+          "close": 3.17
+        },
+        {
+          "date": "2026-03-20",
+          "close": 3.1
+        },
+        {
+          "date": "2026-03-20",
+          "close": 3.1
+        }
+      ]
+    }
+  ],
+  "energy": {},
+  "fred": [],
+  "bls": [],
+  "treasury": {
+    "totalDebt": "39002265870014.23",
+    "signals": [
+      "National debt at $39.00T"
+    ]
+  },
+  "gscpi": {
+    "value": 0.49,
+    "date": "2026-02",
+    "interpretation": "above average"
+  },
+  "newsCount": 50,
+  "newsSample": [
+    "",
+    ""
+  ],
+  "ideasCount": 8,
+  "ideasSource": "llm",
+  "defenseContracts": 5,
+  "healthSrcOk": 0,
+  "healthSrcTotal": 27
+}

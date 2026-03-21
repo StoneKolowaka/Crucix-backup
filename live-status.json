@@ -1,0 +1,45 @@
+{
+  "crucix": {
+    "status": "ok",
+    "uptime": 1322,
+    "lastSweep": "2026-03-21T18:16:16.943Z",
+    "nextSweep": "2026-03-21T18:18:16.943Z",
+    "sweepInProgress": true,
+    "sweepStartedAt": "2026-03-21T18:17:46.917Z",
+    "sourcesOk": 26,
+    "sourcesFailed": 2,
+    "llmEnabled": true,
+    "llmProvider": "anthropic",
+    "telegramEnabled": false,
+    "refreshIntervalMinutes": 2,
+    "language": "en"
+  },
+  "smsBridge": {
+    "status": "ok",
+    "owner": "set",
+    "number": "+13186678207",
+    "uptime": 547
+  },
+  "crucixProxy": {
+    "ok": true,
+    "keys": 30,
+    "news": 50,
+    "ideas": 7
+  },
+  "gas": {
+    "safe": 0.04,
+    "standard": 0.04,
+    "fast": 0.05,
+    "rapid": 0.06,
+    "timestamp": 1774117068174
+  },
+  "defi": {
+    "protocols": 20,
+    "tvl": 352063584879.5876
+  },
+  "crypto": {
+    "coins": 50,
+    "btc": 70362
+  },
+  "autoStart": "INSTALLED"
+}

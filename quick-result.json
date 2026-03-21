@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-03-21T09:44:02.531Z",
+  "steps": [
+    {
+      "step": "check-processes",
+      "ok": true,
+      "msg": "3 node processes found"
+    },
+    {
+      "step": "crucix-alive",
+      "ok": true,
+      "msg": "Already running: {\"status\":\"ok\",\"uptime\":701,\"lastSweep\":\"2026-03-21T09:32:52.765Z\",\"nextSweep\":\"2026-03-21T09:47:52.765Z\",\"sweepInProgress\":false,\"sweepStartedAt\":\"2026-03-21T09:32:22.626Z\",\"sourcesOk\":27,\"sourcesFailed\":1,\"llmEnabled\":true,\"llmProvider\":\"anthropic\",\"telegramEnabled\":false,\"refreshIntervalMinutes\":15,\"language\":\"en\"}"
+    },
+    {
+      "step": "proxy-test",
+      "ok": true,
+      "msg": "200 — {\"meta\":{\"version\":\"2.0.0\",\"timestamp\":\"2026-03-21T09:32:52.744Z\",\"totalDurationMs\":30021,\"sourcesQueried\":28,\"sourcesOk\":27,\"sourcesFailed\":1},\"air\":[{\"region\":\"Middle East\",\"total\":0,\"noCallsign\":0,\"highAlt\":0,\"top\":[]},{\"region\":\"Taiwan Strait\",\"total\":0,\"noCallsign\":0,\"highAlt\":0,\"top\":[]},{\"reg"
+    },
+    {
+      "step": "scheduled-task",
+      "ok": false,
+      "msg": "Registration failed: Command failed: schtasks /Create /TN \"Crucix Intelligence Engine\" /TR \"wscript.exe \\\"C:\\Users\\MARK KEKUA\\Documents\\Crucix\\start-crucix.vbs\\\"\" /SC ONLOGON /RL HIGHEST /F\nERROR: Access is denied.\r\r\n"
+    },
+    {
+      "step": "crucix-data",
+      "ok": true,
+      "msg": "{\"ok\":true,\"keys\":[\"meta\",\"air\",\"thermal\",\"tSignals\",\"chokepoints\",\"nuke\",\"nukeSignals\",\"airMeta\",\"sdr\",\"tg\",\"who\",\"fred\",\"energy\",\"bls\",\"treasury\",\"gscpi\",\"defense\",\"noaa\",\"epa\",\"acled\",\"gdelt\",\"space\",\"health\",\"news\",\"markets\",\"crypto200\",\"ideas\",\"ideasSource\",\"newsFeed\",\"delta\"],\"newsCount\":50,\"ideasCount\":8,\"sourcesOk\":0}"
+    }
+  ]
+}

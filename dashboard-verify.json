@@ -1,0 +1,121 @@
+{
+  "crucixDirect": {
+    "ok": true,
+    "keys": [
+      "meta",
+      "air",
+      "thermal",
+      "tSignals",
+      "chokepoints",
+      "nuke",
+      "nukeSignals",
+      "airMeta",
+      "sdr",
+      "tg",
+      "who",
+      "fred",
+      "energy",
+      "bls",
+      "treasury",
+      "gscpi",
+      "defense",
+      "noaa",
+      "epa",
+      "acled",
+      "gdelt",
+      "space",
+      "health",
+      "news",
+      "markets",
+      "crypto200",
+      "ideas",
+      "ideasSource",
+      "newsFeed",
+      "delta"
+    ],
+    "newsCount": 0,
+    "ideasCount": 0,
+    "marketsKeys": [
+      "indexes",
+      "rates",
+      "commodities",
+      "crypto",
+      "vix",
+      "timestamp"
+    ],
+    "vix": null,
+    "indexes": [],
+    "rates": [],
+    "commodities": [],
+    "fredKeys": [],
+    "blsKeys": [],
+    "treasuryKeys": [
+      "totalDebt",
+      "signals"
+    ],
+    "gscpi": null,
+    "defenseContracts": 0,
+    "healthSources": "0/10"
+  },
+  "proxyWorks": true,
+  "markets": {
+    "vix": "MISSING",
+    "sp500": "MISSING",
+    "nasdaq": "MISSING",
+    "dow": "MISSING",
+    "fed": "MISSING",
+    "gold": "MISSING",
+    "wti": "MISSING",
+    "brent": "MISSING",
+    "natgas": "MISSING"
+  },
+  "elon": {
+    "totalNews": 0,
+    "elonRelated": 0,
+    "sample": []
+  },
+  "intel": {
+    "healthSources": 10,
+    "airRegions": 0,
+    "nukeEvents": 0,
+    "defenseContracts": 0,
+    "ideas": 0,
+    "ideasSource": "llm-failed"
+  },
+  "ticker": {
+    "newsItems": 0,
+    "sample": []
+  },
+  "crypto": {
+    "ok": true,
+    "coins": 0,
+    "analysis": true
+  },
+  "signals": {
+    "ok": true,
+    "data": {
+      "timestamp": 1774116146970,
+      "opportunities": [],
+      "risks": []
+    }
+  },
+  "defi": {
+    "gas": {
+      "safe": null,
+      "standard": null,
+      "fast": null,
+      "error": "Gas data unavailable"
+    },
+    "defi": {
+      "protocols": [],
+      "totalTVL": 0,
+      "error": "getaddrinfo ENOTFOUND api.defillama.com"
+    }
+  },
+  "osint": {
+    "briefing": [],
+    "ideas": [],
+    "alerts": [],
+    "timestamp": 1774116147223
+  }
+}
