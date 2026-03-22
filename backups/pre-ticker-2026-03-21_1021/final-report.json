@@ -1,0 +1,68 @@
+{
+  "crypto": {
+    "ok": true,
+    "coins": 50,
+    "analysis": {
+      "btcPrice": 70301,
+      "ethPrice": 2147.68,
+      "btcDominance": 58.84376813814516,
+      "sentiment": "NEUTRAL"
+    }
+  },
+  "markets": {
+    "crucixOk": true,
+    "vix": 26.78,
+    "indexes": 4,
+    "rates": 3,
+    "commodities": 5,
+    "energy": {},
+    "fredKeys": 0,
+    "blsKeys": 0,
+    "treasury": "$39.00T",
+    "gscpi": 0.49,
+    "gas": "0.04 Gwei",
+    "defiTVL": "$352B",
+    "defiProtocols": 20,
+    "ideas": 8,
+    "ideasSource": "llm"
+  },
+  "tech": {
+    "newsItems": 3,
+    "sample": [
+      "OpenCode – Open source AI coding agent",
+      "Blocking Internet Archive Won't Stop AI, but Will Erase Web'"
+    ]
+  },
+  "elon": {
+    "totalNewsFeed": 50,
+    "elonRelated": 1,
+    "sample": [
+      "US jury finds tech tycoon Elon Musk misled Twitter shareholders"
+    ]
+  },
+  "intel": {
+    "healthSources": 27,
+    "delta": 0,
+    "airRegions": 6,
+    "nukeEvents": 6,
+    "spaceEvents": 0,
+    "defenseContracts": 5,
+    "ideas": 8,
+    "osintBriefing": 0
+  },
+  "ticker": {
+    "items": 50,
+    "sample": [
+      "Two US federal prosecutors investigating Colombian President Gustavo Petro over ",
+      "Russian diesel shipment bound for Cuba challenges US blockade"
+    ]
+  },
+  "chat": {
+    "note": "Chat uses Anthropic API — tested separately"
+  },
+  "summary": {
+    "totalIssues": 0,
+    "issues": [],
+    "verdict": "ALL TABS WORKING"
+  }
+}

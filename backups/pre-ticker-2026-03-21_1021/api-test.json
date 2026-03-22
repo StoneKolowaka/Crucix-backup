@@ -1,0 +1,37 @@
+{
+  "gas": {
+    "ok": true,
+    "gwei": 0,
+    "raw": "0x27bc212"
+  },
+  "defi": {
+    "ok": true,
+    "totalProtocols": 7211,
+    "top5": [
+      {
+        "name": "Binance CEX",
+        "tvl": 151607060845.50406
+      },
+      {
+        "name": "Aave V3",
+        "tvl": 25140539197.321262
+      },
+      {
+        "name": "Lido",
+        "tvl": 19741362572.941086
+      },
+      {
+        "name": "OKX",
+        "tvl": 18065708211.32685
+      },
+      {
+        "name": "Bitfinex",
+        "tvl": 17139743079.422735
+      }
+    ]
+  },
+  "oldDefi": {
+    "ok": false,
+    "error": "getaddrinfo ENOTFOUND api.defillama.com"
+  }
+}

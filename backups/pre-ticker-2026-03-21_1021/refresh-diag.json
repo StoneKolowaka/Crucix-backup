@@ -1,0 +1,70 @@
+{
+  "crypto": {
+    "responseTime": "62ms",
+    "status": 200,
+    "coins": 50,
+    "btcPrice": 70362,
+    "ethPrice": 2149.96
+  },
+  "crucix": {
+    "responseTime": "69ms",
+    "status": 200,
+    "newsFeedCount": 50
+  },
+  "elon": {
+    "totalFeedItems": 50,
+    "elonRelated": 1,
+    "feedItemFields": [
+      "headline",
+      "source",
+      "type",
+      "timestamp",
+      "region",
+      "urgent",
+      "url"
+    ],
+    "sample": [
+      {
+        "headline": "Two US federal prosecutors investigating Colombian President Gustavo Petro over ",
+        "source": "MercoPress",
+        "region": "Colombia"
+      },
+      {
+        "headline": "Russian diesel shipment bound for Cuba challenges US blockade",
+        "source": "MercoPress",
+        "region": "Russia"
+      },
+      {
+        "headline": "Bhagalpur’s Vikramshila Setu safe, say Bihar officials after ‘false wall’ collap",
+        "source": "Indian Express",
+        "region": "India"
+      }
+    ],
+    "elonSample": [
+      {
+        "headline": "US jury finds tech tycoon Elon Musk misled Twitter shareholders",
+        "source": "France 24"
+      }
+    ]
+  },
+  "cryptoCache": {
+    "btcPrice1": 70362,
+    "btcPrice2": 70362,
+    "same": true
+  },
+  "crucixHealth": {
+    "status": "ok",
+    "uptime": 1465,
+    "lastSweep": "2026-03-21T18:18:16.947Z",
+    "nextSweep": "2026-03-21T18:20:16.947Z",
+    "sweepInProgress": true,
+    "sweepStartedAt": "2026-03-21T18:19:46.919Z",
+    "sourcesOk": 26,
+    "sourcesFailed": 2,
+    "llmEnabled": true,
+    "llmProvider": "anthropic",
+    "telegramEnabled": false,
+    "refreshIntervalMinutes": 2,
+    "language": "en"
+  }
+}
